@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>TBA</title></title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+
+<head>
+    <title>Picture of the Day</title>
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="avatar.css">
-    </head>
-    
-    <body>
-         <div ng-app='app' ng-controller='mainCtrl'>
-             
+</head>
+
+<body>
+    <div ng-app='Pics' ng-controller='MainCtrl'>
+        <h1> Vote on the Pic of the Day!</h1>
+        <h3> A picture is worth a thousand words... </h3>
+        <form ng-submit="addPost()">
+            <input placeholder="Title of Picture" ng-model="title"></input>
+            <input placeholder="Image URL" ng-model="imageURL"></input>
+            <input placeholder="Name of Contributor" ng-model="contributor"></input>
+            <button type="submit">Post Your Own</button>
+        </form>
+        <div ng-repeat="post in posts | orderBy: '-upvotes'">
+            {{post.title}} <br> 
+            <img src= {{post.image}} alt= {{post.title}} > <br> 
+             <span ng-click="incrementUpvotes(post)">^</span>
+             Likes: {{post.upvotes}} Courtesy of {{post.contributor}}
         </div>
-    </body>
+
+    </div>
+</body>
+
 </html>
