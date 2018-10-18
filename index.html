@@ -18,6 +18,9 @@
             <input placeholder="Title of Picture" ng-model="title"></input>
             <input placeholder="Image URL" ng-model="imageURL"></input>
             <input placeholder="Name of Contributor" ng-model="contributor"></input>
+            <select ng-model="selectedValue">
+            <option ng-repeat="x in names">{{x}}</option>
+            </select>
             <button type="submit">Post Your Own</button>
         </form>
         <div ng-repeat="post in posts | orderBy: '-upvotes'">
@@ -25,6 +28,8 @@
             <img src= {{post.image}} alt= {{post.title}} > <br> 
              <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
              Likes: {{post.upvotes}} Courtesy of {{post.contributor}}
+             <br>
+             This post is {{post.selectedValue}}
         </div>
 
     </div>
