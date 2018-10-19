@@ -11,8 +11,12 @@ img {
 html,body{
     background-color: lightgrey;
     color: White;
+    background-image: url(https://images.pexels.com/photos/1308624/pexels-photo-1308624.jpeg?auto=compress&cs=tinysrgb&h=350);
 }
 
 #select {
+    color: black;
+}
+#create {
     color: black;
 }
