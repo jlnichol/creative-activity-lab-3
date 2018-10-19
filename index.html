@@ -4,10 +4,10 @@
 <head>
     <title>Picture of the Day</title>
     </title>
-     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
     <script src="script.js"></script>
-    <link rel="stylesheet" type="text/css" href="avatar.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 
 <body>
@@ -24,13 +24,20 @@
             <button type="submit">Post Your Own</button>
         </form>
         <div ng-repeat="post in posts | orderBy: '-upvotes'">
-            {{post.title}} <br> 
-            <img src= {{post.image}} alt= {{post.title}} > <br> 
-             <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span>
-             Likes: {{post.upvotes}} Courtesy of {{post.contributor}}
-             <br>
-             This post is {{post.selectedValue}}
+            <div class="individualpost">
+                {{post.title}} <br>
+                <img class=pics src={{post.image}} alt= {{post.title}}> <br>
+                <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span> Likes: {{post.upvotes}} Courtesy of {{post.contributor}}
+                <br> This post is {{post.selectedValue}}
+                <br>
+                <div class="comments" ng-repeat="comment in comments">
+                    {{post.commentData}}
+                </div>
+                <input placeholder="Leave a Comment" ng-Model="body"></input>
+                <button type="submit">Comment</button>
+            </div>
         </div>
+
 
     </div>
 </body>
