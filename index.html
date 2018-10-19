@@ -24,7 +24,11 @@
     <div class="box cta">
     </div>
     <div class="container">
-     <p>Click on a character's HP to inflict damage!</p>
+     <p>Actions:</p>
+     <span class= "glyphicon glyphicon-glass"> Give Potion</span> <br>
+     <span class= "glyphicon glyphicon-flash"> Kill</span> <br>
+     <span class= "glyphicon glyphicon-fire"> Damage</span> <br>
+     <span class= "glyphicon glyphicon-transfer"> Change Sides</span>
      </div>
      <br>
      
@@ -48,13 +52,17 @@
             {{post.title}} </div>
             <img src= {{post.image}} alt= {{post.title}} > <br>
             
-             <span class="glyphicon glyphicon-heart" ng-click="damage(post)"></span>
-             HP: {{post.upvotes}} <span class="button" ng-click="restoreHealth(post)">Give Potion</span>
+             <span class="glyphicon glyphicon-heart"></span>
+             HP: {{post.upvotes}} 
              <br>
              Species: {{post.contributor}}
              <br>
-             This post is {{post.selectedValue}}
+             This character is {{post.selectedValue}}
              <br>
+             <span class= "glyphicon glyphicon-glass" ng-click="restoreHealth(post)"> Give Potion  </span> 
+             <span class= "glyphicon glyphicon-flash" ng-click="kill(post)"> Kill  </span> 
+             <span class= "glyphicon glyphicon-fire" ng-click="damage(post)"> Damage  </span> 
+             <span class= "glyphicon glyphicon-transfer" ng-click="changeSides(post)"> Change Sides  </span>
              <br>
              </div>
              </div>

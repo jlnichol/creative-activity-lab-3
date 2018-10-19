@@ -32,7 +32,7 @@
             title: $scope.title,
             image: $scope.imageURL,
             contributor: $scope.contributor,
-            upvotes: 0,
+            upvotes: 8,
             selectedValue: $scope.selectedValue
           });
           $scope.title = "";
@@ -43,6 +43,19 @@
 
         $scope.restoreHealth = function(post) {
           post.upvotes += 5;
+        }
+        
+        $scope.changeSides = function(post) {
+          if (post.selectedValue === "Good") {
+          post.selectedValue = "Evil"
+          }
+          else {
+            post.selectedValue = "Good"
+          }
+        }
+        
+        $scope.kill = function(post) {
+          post.upvotes = 0;
         }
 
         $scope.damage = function(post) {
