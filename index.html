@@ -38,8 +38,8 @@
             <input placeholder="Name" ng-model="title"></input>
             <input placeholder="Image URL" ng-model="imageURL"></input>
             <input placeholder="Species" ng-model="contributor"></input>
-            <select ng-model="selectedValue">
-            <option ng-repeat="x in names">{{x}}</option>
+            <select id="select" ng-model="selectedValue">
+            <option  ng-repeat="x in names">{{x}}</option>
             </select>
             <button type="submit">Post Your Own</button>
         </form>

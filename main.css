@@ -7,3 +7,12 @@ img {
   height: 200px;
   border-radius: 50%;
 }
+
+html,body{
+    background-color: lightgrey;
+    color: White;
+}
+
+#select {
+    color: black;
+}
