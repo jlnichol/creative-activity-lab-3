@@ -2,11 +2,11 @@
 <html>
 
 <head>
-    <title>Picture of the Day</title>
+    <title>Characters</title>
     </title>
      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
-    <script src="script.js"></script>
+    <script src="scriptCopy.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" type="text/css" href="avatar.css">
@@ -16,20 +16,24 @@
     <section class= "hero is-success is-small">
         <div class="hero-body">
             <div class="container has-text-centered">
-        <h1 class= "title"> Vote on the Pic of the Day!</h1>
-        <h3 class="subtitle"> A picture is worth a thousand words... </h3>
+        <h1 class= "title"> Create Characters for a Quest!</h1>
+        <h3 class="subtitle"> Beware! Here be dragons... </h3>
         </div>
         </div>
     </section>
     <div class="box cta">
-        
     </div>
+    <div class="container">
+     <p>Click on a character's HP to inflict damage!</p>
+     </div>
+     <br>
+     
     <div class = "container" ng-app='Pics' ng-controller='MainCtrl'>
         
         <form ng-submit="addPost()">
-            <input placeholder="Title of Picture" ng-model="title"></input>
+            <input placeholder="Name" ng-model="title"></input>
             <input placeholder="Image URL" ng-model="imageURL"></input>
-            <input placeholder="Name of Contributor" ng-model="contributor"></input>
+            <input placeholder="Species" ng-model="contributor"></input>
             <select ng-model="selectedValue">
             <option ng-repeat="x in names">{{x}}</option>
             </select>
@@ -44,10 +48,10 @@
             {{post.title}} </div>
             <img src= {{post.image}} alt= {{post.title}} > <br>
             
-             <span class="glyphicon glyphicon-heart" ng-click="incrementUpvotes(post)"></span>
-             Likes: {{post.upvotes}} 
+             <span class="glyphicon glyphicon-heart" ng-click="damage(post)"></span>
+             HP: {{post.upvotes}} <span class="button" ng-click="restoreHealth(post)">Give Potion</span>
              <br>
-             Courtesy of {{post.contributor}}
+             Species: {{post.contributor}}
              <br>
              This post is {{post.selectedValue}}
              <br>
